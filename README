@@ -1,0 +1,37 @@
+# Fractal Web Demo
+
+Fractal web demo is a web based single page app (SPA) that generates images from fractals, hosted
+on github pages.
+
+## Features
+
+- **Mandelbrot Set** - Explore the famous Mandelbrot fractal
+- **Julia Set** - Interactive Julia sets with configurable constants (Re + Im)
+- **Burning Ship** - The Burning Ship fractal variant
+- **8 Color Palettes** - Electric, Fire, Ocean, Rainbow, Grayscale, Neon, Sunset, Arctic
+- **Smooth Coloring** - Normalized iteration count for smooth gradient output
+- **Zoom & Pan** - Mouse wheel zoom, click-drag pan, double-click to zoom in
+- **Touch Support** - Pinch to zoom, drag to pan on mobile
+- **Export PNG** - Save fractal images to your device
+- **Save/Load Presets** - Persist your favorite views in localStorage
+- **Max Iterations** - Adjust from 10 to 1000 for more detail at high zoom levels
+
+## Getting Started
+
+Just open `index.html` in a browser, or deploy to GitHub Pages.
+
+### GitHub Pages
+
+1. Push to the `main` branch
+2. GitHub Actions will automatically deploy to GitHub Pages
+3. Enable Pages in repository settings: Settings > Pages > Source = GitHub Actions
+
+## Development
+
+No build tools required. Just serve the files locally:
+
+```bash
+python3 -m http.server 8080
+# or
+npx serve .
+```

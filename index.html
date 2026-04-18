@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fractal Generator</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div id="app">
+    <header>
+      <h1>Fractal Generator</h1>
+    </header>
+    <main>
+      <div id="canvas-container">
+        <canvas id="fractal-canvas"></canvas>
+        <div id="zoom-info"></div>
+      </div>
+      <div id="controls">
+        <div class="control-group">
+          <label>Fractal Type</label>
+          <select id="fractal-type">
+            <option value="mandelbrot">Mandelbrot Set</option>
+            <option value="julia">Julia Set</option>
+            <option value="burningship">Burning Ship</option>
+          </select>
+        </div>
+        <div class="control-group" id="julia-controls" style="display:none;">
+          <label>Julia Constant</label>
+          <div class="julia-params">
+            <div>
+              <span>Re: <input type="number" id="julia-re" value="-0.7" step="0.01"></span>
+              <span>Im: <input type="number" id="julia-im" value="0.27015" step="0.01"></span>
+            </div>
+            <button id="random-julia">Random</button>
+            <button id="random-julia-2">Random 2</button>
+          </div>
+        </div>
+        <div class="control-group">
+          <label>Max Iterations: <span id="iter-value">100</span></label>
+          <input type="range" id="max-iterations" min="10" max="1000" value="100">
+        </div>
+        <div class="control-group">
+          <label>Color Palette</label>
+          <select id="color-palette">
+            <option value="electro">Electric</option>
+            <option value="fire">Fire</option>
+            <option value="ocean">Ocean</option>
+            <option value="rainbow">Rainbow</option>
+            <option value="grayscale">Grayscale</option>
+            <option value="neon">Neon</option>
+            <option value="sunset">Sunset</option>
+            <option value="arctic">Arctic</option>
+          </select>
+        </div>
+        <div class="control-group">
+          <label>Smoothing</label>
+          <input type="checkbox" id="smoothing" checked>
+          <span>Smooth coloring</span>
+        </div>
+        <div class="control-group" style="border-top: 1px solid #2a2a3a; padding-top: 14px; margin-top: 14px;">
+          <label style="color: #4a9eff;">Animation (FractInt Style)</label>
+          <button id="animate-btn" class="animate-toggle">▶ Animate</button>
+          <button id="fullscreen-btn">⛶ Fullscreen</button>
+          <div id="anim-controls" style="display:none; margin-top: 8px;">
+            <label>Mode</label>
+            <select id="anim-mode">
+              <option value="cycle">Cycle Palettes</option>
+              <option value="hue">Hue Shift</option>
+              <option value="pulse">Pulse</option>
+              <option value="rainbow">Rainbow Cycle</option>
+              <option value="wave">Wave Shift</option>
+              <option value="fire">Fire Dance</option>
+            </select>
+            <label style="margin-top: 8px;">Speed: <span id="anim-speed-value">3</span></label>
+            <input type="range" id="anim-speed" min="1" max="20" value="3">
+            <label style="margin-top: 8px;">
+              <input type="checkbox" id="anim-reverse"> Reverse
+            </label>
+            <label style="margin-top: 8px;">
+              <input type="checkbox" id="anim-iterate"> Iterate Fractal
+            </label>
+          </div>
+        </div>
+        <div class="control-group">
+          <button id="reset-view">Reset View</button>
+          <button id="export-png">Export PNG</button>
+        </div>
+        <div class="control-group">
+          <button id="save-preset">Save Preset</button>
+          <button id="load-presets">Load Presets</button>
+          <div id="preset-list" class="preset-list" style="display:none;"></div>
+        </div>
+      </div>
+    </main>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
