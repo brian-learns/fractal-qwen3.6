@@ -4,18 +4,25 @@
   box-sizing: border-box;
 }
 
+html {
+  touch-action: manipulation;
+}
+
 body {
   font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
   background: #0a0a0f;
   color: #e0e0e0;
   overflow: hidden;
   height: 100vh;
+  height: 100dvh;
+  -webkit-tap-highlight-color: transparent;
 }
 
 #app {
   display: flex;
   flex-direction: column;
   height: 100vh;
+  touch-action: manipulation;
 }
 
 header {
@@ -44,11 +51,16 @@ main {
   position: relative;
   background: #000;
   overflow: hidden;
+  touch-action: pan-y;
 }
 
 #fractal-canvas {
   display: block;
   cursor: crosshair;
+  touch-action: none;
+  -webkit-touch-callout: none;
+  user-select: none;
+  -webkit-user-select: none;
 }
 
 #zoom-info {
@@ -71,6 +83,7 @@ main {
   padding: 16px;
   overflow-y: auto;
   flex-shrink: 0;
+  -webkit-tap-highlight-color: transparent;
 }
 
 .control-group {
@@ -317,5 +330,51 @@ button:active {
 
   #canvas-container {
     min-height: 50vh;
+  }
+}
+
+@media (max-width: 480px) {
+  header {
+    padding: 8px 12px;
+  }
+
+  header h1 {
+    font-size: 1.1rem;
+  }
+
+  #controls {
+    padding: 10px;
+    max-height: 45vh;
+  }
+
+  #canvas-container {
+    min-height: 50vh;
+  }
+
+  .control-group {
+    margin-bottom: 12px;
+  }
+
+  .control-group label {
+    font-size: 0.8rem;
+  }
+
+  select, input[type="number"] {
+    padding: 10px 10px;
+    font-size: 16px;
+  }
+
+  button {
+    padding: 10px 12px;
+    font-size: 0.85rem;
+  }
+
+  .julia-params input[type="number"] {
+    width: 70px;
+  }
+
+  #zoom-info {
+    font-size: 0.65rem;
+    padding: 4px 8px;
   }
 }
