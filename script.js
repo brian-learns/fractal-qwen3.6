@@ -737,15 +737,10 @@ animateBtn.addEventListener('click', toggleAnimation);
 
 fullscreenBtn.addEventListener('click', () => {
   if (!document.fullscreenElement) {
-    document.documentElement.requestFullscreen();
+    canvas.requestFullscreen();
   } else {
     document.exitFullscreen();
   }
-});
-
-document.addEventListener('fullscreenchange', () => {
-  fullscreenBtn.textContent = document.fullscreenElement ? '⛶ Exit Fullscreen' : '⛶ Fullscreen';
-  resizeCanvas();
 });
 
 animModeSelect.addEventListener('change', () => {
